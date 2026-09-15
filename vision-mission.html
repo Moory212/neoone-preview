@@ -236,8 +236,13 @@ body:has(.neo-site) .wp-block-html,
 .neo-site .card-icon{
 .neo-site .card-icon{
 .neo-site .card-icon{
-  width:55px!important;min-width:48px!important;height:48px!important;padding:0 16px!important;
+.neo-site .card-icon{
+  width:auto!important;min-width:48px!important;height:48px!important;padding:0 16px!important;
   margin-bottom:20px!important;border-radius:14px!important;
+  display:grid!important;place-items:center!important;background:var(--blue-soft)!important;color:var(--blue-dark)!important;
+  font-family:'Sora',sans-serif!important;font-size:.85rem!important;font-weight:900!important;
+  white-space:nowrap!important
+}  margin-bottom:20px!important;border-radius:14px!important;
   display:grid!important;place-items:center!important;background:var(--blue-soft)!important;color:var(--blue-dark)!important;
   font-family:'Sora',sans-serif!important;font-size:.85rem!important;font-weight:900!important;
   white-space:nowrap!important
@@ -404,7 +409,7 @@ body:has(.neo-site) .wp-block-html,
 .neo-site .cta-band p{max-width:660px!important;color:rgba(255,255,255,.72)!important;margin-top:13px!important}
 .neo-site .neo-footer{padding:60px 0 28px!important;background:var(--ink)!important;color:rgba(255,255,255,.65)!important}
 .neo-site .footer-grid{display:grid!important;grid-template-columns:1.35fr repeat(4,1fr)!important;gap:35px!important}
-.neo-site .footer-brand img{width:145px!important;margin-bottom:17px!important;background:#fff!important;border-radius:10px!important;padding:8px!important}
+.neo-site .footer-brand img{width:145px!important;margin-bottom:17px!important}
 .neo-site .footer-brand p{max-width:310px!important;color:rgba(255,255,255,.52)!important;font-size:.9rem!important}
 .neo-site .footer-col h4{margin-bottom:15px!important;color:#fff!important;font-size:.92rem!important}
 .neo-site .footer-col a{display:block!important;margin:9px 0!important;color:rgba(255,255,255,.55)!important;font-size:.86rem!important}
@@ -470,6 +475,11 @@ body:has(.neo-site) .wp-block-html,
 @media(prefers-reduced-motion:reduce){
   .neo-site .reveal{opacity:1!important;transform:none!important;transition:none!important}
 }
+.neo-site .card-icon{
+  width:48px!important;height:48px!important;margin-bottom:20px!important;border-radius:14px!important;
+  display:grid!important;place-items:center!important;background:var(--blue-soft)!important;color:var(--blue-dark)!important;
+  font-family:'Sora',sans-serif!important;font-size:.9rem!important;font-weight:900!important
+}
 </style>
 <div class="neo-site">
 
@@ -482,11 +492,11 @@ body:has(.neo-site) .wp-block-html,
       <li><a class="" href="index.html">Home</a></li>
       <li class="has-dropdown">
       <button class="nav-trigger active" type="button">About<span>⌄</span></button>
-      <div class="dropdown"><a href="about.html">About neOOne</a><a href="vision-mission.html">Vision, Mission & Values</a><a href="our-people.html">Our People</a><a href="partners-clients.html">Partners & Clients</a></div>
+      <div class="dropdown"><a href="about.html">About neOOne</a><a href="vision-mission.html">Vision, Mission & Values</a><a href="our-people.html">Our People</a><a href="partners-clients.html">Partners & Clients</a><a href="privacy-policy.html">Privacy Policy</a></div>
     </li>
       <li class="has-dropdown">
       <button class="nav-trigger " type="button">Solutions<span>⌄</span></button>
-      <div class="dropdown"><a href="our-solutions.html">Solutions Overview</a><a href="transformation-change.html">Transformation & Change</a><a href="/pillar-two-entrepreneurship-innovation/">Entrepreneurship & Innovation</a><a href="learning-development.html">Learning & Development</a><a href="sustainability-impact.html">Sustainability & Impact</a></div>
+      <div class="dropdown"><a href="our-solutions.html">Solutions Overview</a><a href="transformation-change.html">Transformation & Change</a><a href="entrepreneurship-innovation.html">Entrepreneurship & Innovation</a><a href="learning-development.html">Learning & Development</a><a href="sustainability-impact.html">Sustainability & Impact</a></div>
     </li>
       <li class="has-dropdown">
       <button class="nav-trigger " type="button">Programs<span>⌄</span></button>
@@ -550,7 +560,7 @@ body:has(.neo-site) .wp-block-html,
         <a href="our-people.html">Our People</a><a href="partners-clients.html">Partners & Clients</a>
       </div>
       <div class="footer-col"><h4>Solutions</h4>
-        <a href="transformation-change.html">Transformation & Change</a><a href="/pillar-two-entrepreneurship-innovation/">Entrepreneurship & Innovation</a>
+        <a href="transformation-change.html">Transformation & Change</a><a href="entrepreneurship-innovation.html">Entrepreneurship & Innovation</a>
         <a href="learning-development.html">Learning & Development</a><a href="sustainability-impact.html">Sustainability & Impact</a>
       </div>
       <div class="footer-col"><h4>Explore</h4>
@@ -559,7 +569,7 @@ body:has(.neo-site) .wp-block-html,
       </div>
       <div class="footer-col"><h4>Connect</h4>
         <a href="blog.html">Insights</a><a href="contact.html">Contact</a>
-        <a href="mailto:hello@neoone.com.my">hello@neoone.com.my</a><a href="tel:+60134523292">013-452 3292</a>
+        <a href="mailto:admin@neoone.com.my">admin@neoone.com.my</a><a href="tel:+60134523292">013-452 3292</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -615,7 +625,8 @@ body:has(.neo-site) .wp-block-html,
       root.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
       btn.classList.add('active');
       root.querySelectorAll('.project-card[data-category]').forEach(function(card){
-        card.style.display=(filter==='all'||card.getAttribute('data-category').split(' ').indexOf(filter)>-1)?'flex':'none';
+        var match=(filter==='all'||card.getAttribute('data-category').split(' ').indexOf(filter)>-1);
+        card.classList.toggle('filtered-out',!match);
       });
     });
   });

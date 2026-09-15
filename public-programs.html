@@ -236,8 +236,13 @@ body:has(.neo-site) .wp-block-html,
 .neo-site .card-icon{
 .neo-site .card-icon{
 .neo-site .card-icon{
-  width:55px!important;min-width:48px!important;height:48px!important;padding:0 16px!important;
+.neo-site .card-icon{
+  width:auto!important;min-width:48px!important;height:48px!important;padding:0 16px!important;
   margin-bottom:20px!important;border-radius:14px!important;
+  display:grid!important;place-items:center!important;background:var(--blue-soft)!important;color:var(--blue-dark)!important;
+  font-family:'Sora',sans-serif!important;font-size:.85rem!important;font-weight:900!important;
+  white-space:nowrap!important
+}  margin-bottom:20px!important;border-radius:14px!important;
   display:grid!important;place-items:center!important;background:var(--blue-soft)!important;color:var(--blue-dark)!important;
   font-family:'Sora',sans-serif!important;font-size:.85rem!important;font-weight:900!important;
   white-space:nowrap!important
@@ -404,7 +409,7 @@ body:has(.neo-site) .wp-block-html,
 .neo-site .cta-band p{max-width:660px!important;color:rgba(255,255,255,.72)!important;margin-top:13px!important}
 .neo-site .neo-footer{padding:60px 0 28px!important;background:var(--ink)!important;color:rgba(255,255,255,.65)!important}
 .neo-site .footer-grid{display:grid!important;grid-template-columns:1.35fr repeat(4,1fr)!important;gap:35px!important}
-.neo-site .footer-brand img{width:145px!important;margin-bottom:17px!important;background:#fff!important;border-radius:10px!important;padding:8px!important}
+.neo-site .footer-brand img{width:145px!important;margin-bottom:17px!important}
 .neo-site .footer-brand p{max-width:310px!important;color:rgba(255,255,255,.52)!important;font-size:.9rem!important}
 .neo-site .footer-col h4{margin-bottom:15px!important;color:#fff!important;font-size:.92rem!important}
 .neo-site .footer-col a{display:block!important;margin:9px 0!important;color:rgba(255,255,255,.55)!important;font-size:.86rem!important}
@@ -470,6 +475,44 @@ body:has(.neo-site) .wp-block-html,
 @media(prefers-reduced-motion:reduce){
   .neo-site .reveal{opacity:1!important;transform:none!important;transition:none!important}
 }
+/* ---------- Program card preview images ---------- */
+.neo-site .program-card .program-image{
+  margin:-28px -28px 22px!important;
+  aspect-ratio:16/9!important;
+  overflow:hidden!important;
+  border-radius:var(--radius-md) var(--radius-md) 0 0!important;
+  background:linear-gradient(135deg,var(--blue-soft),var(--orange-soft))!important;
+}
+.neo-site .program-card .program-image img{
+  width:100%!important;height:100%!important;object-fit:cover!important;
+}
+/* ---------- Program grid: two per row on desktop ---------- */
+@media(min-width:901px){
+  .neo-site .program-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:28px!important}
+}
+
+/* ---------- Show whole program photo without cropping ---------- */
+.neo-site .program-card .program-image img{
+  object-fit:contain!important;
+  padding:10px!important;
+}
+/* ---------- Program image gallery ---------- */
+.neo-site .program-gallery{
+  position:relative!important;
+  width:100%!important;height:100%!important;
+}
+.neo-site .program-gallery img{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;height:100%!important;
+  object-fit:contain!important;
+  padding:10px!important;
+  opacity:0!important;
+  transition:opacity 1.4s ease!important;
+}
+.neo-site .program-gallery img.active{opacity:1!important}
+.neo-site .program-card .program-image{aspect-ratio:3/4!important}
+.neo-site .program-gallery img{object-fit:cover!important;padding:0!important}
 </style>
 <div class="neo-site">
 
@@ -482,11 +525,11 @@ body:has(.neo-site) .wp-block-html,
       <li><a class="" href="index.html">Home</a></li>
       <li class="has-dropdown">
       <button class="nav-trigger " type="button">About<span>⌄</span></button>
-      <div class="dropdown"><a href="about.html">About neOOne</a><a href="vision-mission.html">Vision, Mission & Values</a><a href="our-people.html">Our People</a><a href="partners-clients.html">Partners & Clients</a></div>
+      <div class="dropdown"><a href="about.html">About neOOne</a><a href="vision-mission.html">Vision, Mission & Values</a><a href="our-people.html">Our People</a><a href="partners-clients.html">Partners & Clients</a><a href="privacy-policy.html">Privacy Policy</a></div>
     </li>
       <li class="has-dropdown">
       <button class="nav-trigger " type="button">Solutions<span>⌄</span></button>
-      <div class="dropdown"><a href="our-solutions.html">Solutions Overview</a><a href="transformation-change.html">Transformation & Change</a><a href="/pillar-two-entrepreneurship-innovation/">Entrepreneurship & Innovation</a><a href="learning-development.html">Learning & Development</a><a href="sustainability-impact.html">Sustainability & Impact</a></div>
+      <div class="dropdown"><a href="our-solutions.html">Solutions Overview</a><a href="transformation-change.html">Transformation & Change</a><a href="entrepreneurship-innovation.html">Entrepreneurship & Innovation</a><a href="learning-development.html">Learning & Development</a><a href="sustainability-impact.html">Sustainability & Impact</a></div>
     </li>
       <li class="has-dropdown">
       <button class="nav-trigger active" type="button">Programs<span>⌄</span></button>
@@ -514,13 +557,50 @@ body:has(.neo-site) .wp-block-html,
     <p class="lead">Explore upcoming learning experiences, certification pathways, mentoring options, and A.P.P.L.E product packages.</p>
   </div>
 </section>
+<section class="section"><div class="container split">
+  <div class="copy reveal">
+    <span class="eyebrow">Quality and recognition</span>
+    <h2>Programs &amp; Certifications</h2>
+    <p>At neOOne Associates, We design learning experiences that develop future-ready trainers, facilitators, and learning leader.</p>
+    <p>Our programs and certifications are co-developed and quality-assured in collaboration with DRB-HICOM University of Automotive Malaysia (DHU), affirming NeoOne Associates’ role as a trusted curriculum design and assessment partner.</p>
+    <p>As verified by DHU, neOOne serves as Lead Curriculum Designers and Assessors for nationally and professionally recognized certifications — including Game-Based Learning, Virtual Learning Facilitation, Accelerated Learning, Design Thinking, Enterprise Coaching, and ESG Transformation.</p>
+    <p>Each certification is grounded in experiential learning and industry relevance, designed to empower educators, facilitators, and leaders to deliver impactful learning experiences and drive meaningful transformation.</p>
+    <div class="pill-row">
+      <span class="pill">Game-Based Learning</span>
+      <span class="pill orange">Virtual Learning Facilitation</span>
+      <span class="pill">Accelerated Learning</span>
+      <span class="pill orange">Design Thinking</span>
+      <span class="pill">Enterprise Coaching</span>
+      <span class="pill orange">ESG Transformation</span>
+    </div>
+    <div class="btn-row" style="margin-top:26px!important;">
+      <a class="btn primary" href="https://neoone.com.my/wp-content/uploads/2026/09/333-COL-2025-Verification-Letter-as-Curriculum-Designer-and-Assessor-NeoOne.pdf" download>Download Verification Letter from DRB-HICOM University</a>
+    </div>
+  </div>
+  <div class="media-panel reveal"><img src="https://neoone.com.my/wp-content/uploads/2026/09/Screenshot-2026-09-15-122915.png" alt="Verification letter from DRB-HICOM University"></div>
+</div></section>
 
-<section class="section white"><div class="container"><div class="section-head reveal"><span class="eyebrow">Choose a pathway</span><h2>Learn in the format that works for you</h2><p>Programme dates, availability, fees, and packages are managed through the existing Fluent Forms registration system.</p></div><div class="program-grid">
-<article class="program-card reveal"><span class="duration">Half Day</span><h3>Trainer’s Toolkit Series</h3><p>Practical workshops for trainers on engagement, reflective practice, visual charts, storytelling, learning spaces, music, art, and facilitation techniques.</p></article><article class="program-card reveal"><span class="duration">Full Day</span><h3>Theory & Methodology Series</h3><p>Focused programmes that deepen understanding of learning science, facilitation, experiential learning, coaching, and programme design.</p></article><article class="program-card reveal"><span class="duration">Play-Based</span><h3>“GAMES” Trainer’s Play</h3><p>Hands-on learning experiences that develop confidence in game-based learning, play, debriefing, and learner engagement.</p></article><article class="program-card reveal"><span class="duration">Certification</span><h3>Professional Certification Pathways</h3><p>Industry-relevant certification in Accelerated Learning, Game-Based Learning, Virtual Facilitation, Design Thinking, Enterprise Coaching, ESG Transformation, and related fields.</p></article><article class="program-card reveal"><span class="duration">Digital</span><h3>AI-Powered Instructional Design</h3><p>A practical programme for designing stronger learning experiences with AI while retaining human judgement, learning outcomes, and ethical practice.</p></article><article class="program-card reveal"><span class="duration">Mentoring</span><h3>Mentoring & Coaching</h3><p>Foundation and advanced pathways that develop listening, enquiry, goal setting, feedback, action planning, and reflective practice.</p></article>
+<section class="section white" id="programs"><div class="container"><div class="section-head reveal"><span class="eyebrow">Choose a pathway</span><h2>Learn in the format that works for you</h2><p>Programme dates, availability, fees, and packages are managed through the existing Fluent Forms registration system.</p></div>
+  <div class="program-grid">
+<article class="program-card reveal"><div class="program-image"><div class="program-gallery"><img src="https://neoone.com.my/wp-content/uploads/2026/02/TRAINERS-TOOLKIT-SERIES.jpg" alt="Trainer's Toolkit Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Hand-Drawn-Charts-for-training.jpg" alt="Trainer's Toolkit Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Learner-Enggagement-Techniques.jpg" alt="Trainer's Toolkit Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Reflective-Practices-for-deep-learning.jpg" alt="Trainer's Toolkit Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Setting-Up-a-conductive-learning-space.jpg" alt="Trainer's Toolkit Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Speaking-in-front-of-the-room-for-trainers-.jpg" alt="Trainer's Toolkit Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Telling-Stories-In-Training.jpg" alt="Trainer's Toolkit Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Training-From-the-back-of-the-room.jpg" alt="Trainer's Toolkit Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Using-Music-In-Workshops.jpg" alt="Trainer's Toolkit Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Utilising-art-to-enhance-learning.jpg" alt="Trainer's Toolkit Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Workshop-Without-Slides.jpg" alt="Trainer's Toolkit Series"></div></div><span class="duration">Half Day</span><h3>Trainer’s Toolkit Series</h3><p>Practical workshops for trainers on engagement, reflective practice, visual charts, storytelling, learning spaces, music, art, and facilitation techniques.</p></article>
+<article class="program-card reveal"><div class="program-image"><div class="program-gallery"><img src="https://neoone.com.my/wp-content/uploads/2026/01/THEORY-METHODOLOGY-SERIES.jpg" alt="Theory & Methodology Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Experimential-Learning.jpg" alt="Theory & Methodology Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Hello-Accelerated-Learning.jpg" alt="Theory & Methodology Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Hello-Aids-and-Props-For-Productive-Learning-Enggagement.jpg" alt="Theory & Methodology Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Hello-Debriefing-The-Science-and-art-of-debriefing.jpg" alt="Theory & Methodology Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Hello-Design-Thinking.jpg" alt="Theory & Methodology Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Hello-Doodle-Notes.jpg" alt="Theory & Methodology Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Hello-Game-Based-Learning.jpg" alt="Theory & Methodology Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Hello-Graphic-Facilitation.jpg" alt="Theory & Methodology Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Hello-Graphic-Recording.jpg" alt="Theory & Methodology Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Hello-Reflective-Practice.jpg" alt="Theory & Methodology Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Hello-Session-design-Canvas.jpg" alt="Theory & Methodology Series"><img src="https://neoone.com.my/wp-content/uploads/2026/02/Introduction-to-VIBES.jpg" alt="Theory & Methodology Series"></div></div><span class="duration">Full Day</span><h3>Theory & Methodology Series</h3><p>Focused programmes that deepen understanding of learning science, facilitation, experiential learning, coaching, and programme design.</p></article>
+<article class="program-card reveal"><div class="program-image"><div class="program-gallery"><img src="https://neoone.com.my/wp-content/uploads/2026/08/games-trainer-play.jpeg" alt="GAMES Trainer's Play"></div></div><span class="duration">Play-Based</span><h3>“GAMES” Trainer’s Play</h3><p>Hands-on learning experiences that develop confidence in game-based learning, play, debriefing, and learner engagement.</p></article>
+<article class="program-card reveal"><div class="program-image"><div class="program-gallery"><img src="https://neoone.com.my/wp-content/uploads/2026/08/ai-powered.jpeg" alt="AI-Powered Instructional Design"></div></div><span class="duration">Digital</span><h3>AI-Powered Instructional Design</h3><p>A practical programme for designing stronger learning experiences with AI while retaining human judgement, learning outcomes, and ethical practice.</p></article>
+<article class="program-card reveal"><div class="program-image"><div class="program-gallery"><img src="https://neoone.com.my/wp-content/uploads/2026/01/Learning-Pass-2.jpg" alt="Learning Pass"></div></div><span class="duration">Access</span><h3>Learning Pass</h3><p>Flexible access to a curated selection of neOOne workshops, giving learners the freedom to build their own learning journey across the year.</p></article>
+<article class="program-card reveal"><div class="program-image"><div class="program-gallery"><img src="https://neoone.com.my/wp-content/uploads/2026/07/CL-1.jpeg" alt="The Coaching Leader"></div></div><span class="duration">Programme</span><h3>The Coaching Leader</h3><p>A programme for leaders who want to bring a coaching approach into everyday leadership — developing listening, enquiry, and growth-focused conversations.</p></article>
+<article class="program-card reveal"><div class="program-image"><div class="program-gallery"><img src="https://neoone.com.my/wp-content/uploads/2026/07/GBL-1.jpeg" alt="Game Based Learning Certification"></div></div><span class="duration">Certification</span><h3>Game Based Learning Certification</h3><p>A nationally and professionally recognised certification pathway for designing, facilitating, and debriefing game-based learning experiences.</p></article>
+<article class="program-card reveal"><div class="program-image"><div class="program-gallery"><img src="https://neoone.com.my/wp-content/uploads/2026/07/CEC-5.jpeg" alt="Certified Enterprise Coaching"><img src="https://neoone.com.my/wp-content/uploads/2026/07/CEC-2-2.jpeg" alt="Certified Enterprise Coaching"><img src="https://neoone.com.my/wp-content/uploads/2026/07/CEC-3-2.jpeg" alt="Certified Enterprise Coaching"><img src="https://neoone.com.my/wp-content/uploads/2026/07/CEC-4-2.jpeg" alt="Certified Enterprise Coaching"></div></div><span class="duration">Certification</span><h3>Certified Enterprise Coaching</h3><p>A professional coaching certification focused on enterprise and organisational contexts, developing coaching capability for leaders, consultants, and change practitioners.</p></article>
+<article class="program-card reveal"><div class="program-image"><div class="program-gallery"><img src="https://neoone.com.my/wp-content/uploads/2026/07/CGF-1.jpeg" alt="Certified Graphic Facilitator"><img src="https://neoone.com.my/wp-content/uploads/2026/07/CGF2-1.jpeg" alt="Certified Graphic Facilitator"></div></div><span class="duration">Certification</span><h3>Certified Graphic Facilitator</h3><p>A certification pathway for facilitators who want to use visual thinking, graphic recording, and hand-drawn charts to support group learning and dialogue.</p></article>
+<article class="program-card reveal"><div class="program-image"><div class="program-gallery"><img src="https://neoone.com.my/wp-content/uploads/2026/07/Screenshot-2026-07-27-133639.png" alt="Certified Accelerated Learning Facilitator (CALF)"></div></div><span class="duration">Certification</span><h3>Certified Accelerated Learning Facilitator (CALF)</h3><p>A recognised certification for facilitators trained in the Accelerated Learning approach — designing engaging, learner-centred experiences that improve retention and transfer.</p></article>
+<article class="program-card reveal"><div class="program-image"><div class="program-gallery"><img src="https://neoone.com.my/wp-content/uploads/2026/02/CERTIFICATE-IN-ACCELERATED-LEARNING-PRACTICE-CALP.png" alt="Certificate in Accelerated Learning Practice (CALP)"></div></div><span class="duration">Certification</span><h3>Certificate in Accelerated Learning Practice (CALP)</h3><p>A foundational certification in Accelerated Learning principles and practice, for trainers, educators, and learning designers.</p></article>
+<article class="program-card reveal"><div class="program-image"><div class="program-gallery"><img src="https://neoone.com.my/wp-content/uploads/2026/08/plan-the-year.jpeg" alt="Plan the Year 2027"></div></div><span class="duration">Workshop</span><h3>Plan the Year 2027</h3><p>A strategic planning workshop to help teams align priorities, set goals, and design a purposeful learning and growth roadmap for the year ahead.</p></article>
+<article class="program-card reveal"><div class="program-image"><div class="program-gallery"><img src="https://neoone.com.my/wp-content/uploads/2026/08/new-cop.jpeg" alt="Mastering the Art of Camera Visibility (COP)"></div></div><span class="duration">Community of Practice</span><h3>Mastering the Art of Camera Visibility (COP)</h3><p>A community of practice for facilitators, coaches, and trainers who want to show up confidently and effectively on camera in virtual and hybrid learning.</p></article>
+<article class="program-card reveal"><div class="program-image"><div class="program-gallery"><img src="https://neoone.com.my/wp-content/uploads/2026/09/human-centered-design.jpeg" alt="Human-Centred Design Practitioner Certification"></div></div><span class="duration">Certification</span><h3>Human-Centred Design Practitioner Certification</h3><p>A certification in human-centred design — developing the mindsets, tools, and facilitation skills to design solutions around real user needs.</p></article>
+<article class="program-card reveal"><div class="program-image"><div class="program-gallery"><img src="https://neoone.com.my/wp-content/uploads/2026/09/calp.jpeg" alt="Certificate in Accelerated Learning Practice (CALP) Refresher"></div></div><span class="duration">Refresher</span><h3>Certificate in Accelerated Learning Practice (CALP) Refresher</h3><p>A refresher pathway for certified Accelerated Learning practitioners to revisit core principles, update their practice, and stay current with the latest methods.</p></article>
 </div></div></section>
 <section class="section alt"><div class="container contact-grid">
-  <div class="copy reveal"><span class="eyebrow">Registration</span><h2>Select your programme and complete your booking</h2><p>The existing Public Program Fluent Form should be placed in the form area so stock, dates, packages, payments, vouchers, and notifications remain connected to WordPress.</p><ul class="check-list"><li>Live programme availability</li><li>Package and product selections</li><li>Coupon and voucher validation</li><li>Billing and participant information</li><li>Payment and confirmation workflow</li></ul></div>
-  <div class="form-shell reveal"><h3>Public Program Registration</h3><p>Use the existing Fluent Forms shortcode or block here.</p><div class="form-slot"><div><strong>Fluent Forms integration slot</strong><p>Replace this slot with the existing Public Program form using a WordPress Shortcode or Fluent Forms block. Pure HTML cannot execute a WordPress shortcode inside a Custom HTML block.</p></div></div></div>
+  <div class="copy reveal"><span class="eyebrow">Registration</span><h2>Select your programme and complete your booking</h2><p>Register below to secure your place. Programme dates, packages, and payment options are shown during registration.</p><ul class="check-list"><li>Live programme availability</li><li>Package and product selections</li><li>Coupon and voucher validation</li><li>Billing and participant information</li><li>Payment and confirmation workflow</li></ul></div>
+  <div class="form-shell reveal"><h3>Public Program Registration</h3><p>Complete the form below to register for your selected programme.</p>[fluentform id="5"]</div>
 </div></section>
 
 <section class="cta-band">
@@ -545,7 +625,7 @@ body:has(.neo-site) .wp-block-html,
         <a href="our-people.html">Our People</a><a href="partners-clients.html">Partners & Clients</a>
       </div>
       <div class="footer-col"><h4>Solutions</h4>
-        <a href="transformation-change.html">Transformation & Change</a><a href="/pillar-two-entrepreneurship-innovation/">Entrepreneurship & Innovation</a>
+        <a href="transformation-change.html">Transformation & Change</a><a href="entrepreneurship-innovation.html">Entrepreneurship & Innovation</a>
         <a href="learning-development.html">Learning & Development</a><a href="sustainability-impact.html">Sustainability & Impact</a>
       </div>
       <div class="footer-col"><h4>Explore</h4>
@@ -554,7 +634,7 @@ body:has(.neo-site) .wp-block-html,
       </div>
       <div class="footer-col"><h4>Connect</h4>
         <a href="blog.html">Insights</a><a href="contact.html">Contact</a>
-        <a href="mailto:hello@neoone.com.my">hello@neoone.com.my</a><a href="tel:+60134523292">013-452 3292</a>
+        <a href="mailto:admin@neoone.com.my">admin@neoone.com.my</a><a href="tel:+60134523292">013-452 3292</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -610,7 +690,8 @@ body:has(.neo-site) .wp-block-html,
       root.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
       btn.classList.add('active');
       root.querySelectorAll('.project-card[data-category]').forEach(function(card){
-        card.style.display=(filter==='all'||card.getAttribute('data-category').split(' ').indexOf(filter)>-1)?'flex':'none';
+        var match=(filter==='all'||card.getAttribute('data-category').split(' ').indexOf(filter)>-1);
+        card.classList.toggle('filtered-out',!match);
       });
     });
   });
@@ -636,6 +717,19 @@ body:has(.neo-site) .wp-block-html,
         grid.appendChild(card);
       });
     }).catch(function(){ /* static fallback remains */ });
+  });
+
+  root.querySelectorAll('.program-gallery').forEach(function(gallery){
+    var imgs=gallery.querySelectorAll('img');
+    if(!imgs.length)return;
+    imgs[0].classList.add('active');
+    if(imgs.length<2)return;
+    var i=0;
+    setInterval(function(){
+      imgs[i].classList.remove('active');
+      i=(i+1)%imgs.length;
+      imgs[i].classList.add('active');
+    },4500);
   });
 })();
 

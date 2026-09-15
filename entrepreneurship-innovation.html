@@ -236,8 +236,13 @@ body:has(.neo-site) .wp-block-html,
 .neo-site .card-icon{
 .neo-site .card-icon{
 .neo-site .card-icon{
-  width:55px!important;min-width:48px!important;height:48px!important;padding:0 16px!important;
+.neo-site .card-icon{
+  width:auto!important;min-width:48px!important;height:48px!important;padding:0 16px!important;
   margin-bottom:20px!important;border-radius:14px!important;
+  display:grid!important;place-items:center!important;background:var(--blue-soft)!important;color:var(--blue-dark)!important;
+  font-family:'Sora',sans-serif!important;font-size:.85rem!important;font-weight:900!important;
+  white-space:nowrap!important
+}  margin-bottom:20px!important;border-radius:14px!important;
   display:grid!important;place-items:center!important;background:var(--blue-soft)!important;color:var(--blue-dark)!important;
   font-family:'Sora',sans-serif!important;font-size:.85rem!important;font-weight:900!important;
   white-space:nowrap!important
@@ -404,7 +409,7 @@ body:has(.neo-site) .wp-block-html,
 .neo-site .cta-band p{max-width:660px!important;color:rgba(255,255,255,.72)!important;margin-top:13px!important}
 .neo-site .neo-footer{padding:60px 0 28px!important;background:var(--ink)!important;color:rgba(255,255,255,.65)!important}
 .neo-site .footer-grid{display:grid!important;grid-template-columns:1.35fr repeat(4,1fr)!important;gap:35px!important}
-.neo-site .footer-brand img{width:145px!important;margin-bottom:17px!important;background:#fff!important;border-radius:10px!important;padding:8px!important}
+.neo-site .footer-brand img{width:145px!important;margin-bottom:17px!important}
 .neo-site .footer-brand p{max-width:310px!important;color:rgba(255,255,255,.52)!important;font-size:.9rem!important}
 .neo-site .footer-col h4{margin-bottom:15px!important;color:#fff!important;font-size:.92rem!important}
 .neo-site .footer-col a{display:block!important;margin:9px 0!important;color:rgba(255,255,255,.55)!important;font-size:.86rem!important}
@@ -470,6 +475,99 @@ body:has(.neo-site) .wp-block-html,
 @media(prefers-reduced-motion:reduce){
   .neo-site .reveal{opacity:1!important;transform:none!important;transition:none!important}
 }
+/* ---------- Animated tools / methods visual ---------- */
+.neo-site .neo-visual-panel{
+  position:relative!important;
+  background:radial-gradient(circle at 50% 50%,#ffffff 0%,#F8F9FB 55%,#EAF1FB 100%)!important;
+}
+.neo-site .neo-visual-glow{
+  position:absolute!important;top:50%!important;left:50%!important;
+  width:340px!important;height:340px!important;margin:-170px 0 0 -170px!important;
+  border-radius:50%!important;z-index:0!important;
+  background:radial-gradient(circle,rgba(156,23,125,.16),transparent 65%)!important;
+  animation:neo-visual-glow 6s ease-in-out infinite!important;
+}
+.neo-site .neo-visual-core{
+  position:relative!important;z-index:3!important;
+  width:120px!important;height:120px!important;border-radius:50%!important;
+  background:linear-gradient(135deg,var(--blue-dark),#102D59)!important;
+  color:#fff!important;
+  display:grid!important;place-items:center!important;text-align:center!important;
+  padding:16px!important;
+  font-family:'Sora',sans-serif!important;
+  font-size:.8rem!important;font-weight:800!important;
+  line-height:1.25!important;letter-spacing:.01em!important;
+  animation:neo-visual-pulse 3.6s ease-in-out infinite!important;
+}
+.neo-site .neo-visual-ring{
+  position:absolute!important;top:50%!important;left:50%!important;
+  border-radius:50%!important;z-index:1!important;
+  border:1.5px dashed rgba(156,23,125,.28)!important;
+}
+.neo-site .neo-visual-ring.r1{
+  width:200px!important;height:200px!important;margin:-100px 0 0 -100px!important;
+  animation:neo-visual-spin 24s linear infinite!important;
+}
+.neo-site .neo-visual-ring.r2{
+  width:300px!important;height:300px!important;margin:-150px 0 0 -150px!important;
+  border-color:rgba(255,107,53,.28)!important;
+  animation:neo-visual-spin-rev 36s linear infinite!important;
+}
+.neo-site .neo-visual-ring.r3{
+  width:400px!important;height:400px!important;margin:-200px 0 0 -200px!important;
+  animation:neo-visual-spin 48s linear infinite!important;
+}
+.neo-site .neo-visual-ring::after{
+  content:''!important;position:absolute!important;
+  bottom:-6px!important;left:50%!important;
+  width:11px!important;height:11px!important;margin-left:-5.5px!important;
+  border-radius:50%!important;
+  background:var(--blue-dark)!important;
+  box-shadow:0 0 0 5px rgba(156,23,125,.14)!important;
+}
+.neo-site .neo-visual-ring.r2::after{
+  background:var(--orange)!important;
+  box-shadow:0 0 0 5px rgba(255,107,53,.16)!important;
+}
+.neo-site .neo-visual-chip{
+  position:absolute!important;top:-16px!important;left:0!important;right:0!important;
+  width:max-content!important;margin:0 auto!important;
+  padding:8px 14px!important;border-radius:999px!important;
+  background:#fff!important;color:var(--ink)!important;
+  border:1px solid var(--line)!important;
+  box-shadow:0 10px 22px rgba(23,33,43,.12)!important;
+  font-family:'Sora',sans-serif!important;
+  font-size:.72rem!important;font-weight:800!important;white-space:nowrap!important;
+}
+.neo-site .neo-visual-ring.r1 .neo-visual-chip{animation:neo-visual-spin-rev 24s linear infinite!important}
+.neo-site .neo-visual-ring.r2 .neo-visual-chip{animation:neo-visual-spin 36s linear infinite!important}
+.neo-site .neo-visual-ring.r3 .neo-visual-chip{animation:neo-visual-spin-rev 48s linear infinite!important}
+
+@keyframes neo-visual-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes neo-visual-spin-rev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+@keyframes neo-visual-pulse{
+  0%,100%{box-shadow:0 20px 50px rgba(23,63,122,.35),0 0 0 0 rgba(156,23,125,.35)}
+  50%{box-shadow:0 20px 50px rgba(23,63,122,.35),0 0 0 24px rgba(156,23,125,0)}
+}
+@keyframes neo-visual-glow{
+  0%,100%{opacity:.7;transform:scale(1)}
+  50%{opacity:1;transform:scale(1.1)}
+}
+
+@media(max-width:650px){
+  .neo-site .neo-visual-core{width:92px!important;height:92px!important;font-size:.68rem!important;padding:12px!important}
+  .neo-site .neo-visual-ring.r1{width:150px!important;height:150px!important;margin:-75px 0 0 -75px!important}
+  .neo-site .neo-visual-ring.r2{width:220px!important;height:220px!important;margin:-110px 0 0 -110px!important}
+  .neo-site .neo-visual-ring.r3{width:290px!important;height:290px!important;margin:-145px 0 0 -145px!important}
+  .neo-site .neo-visual-chip{font-size:.62rem!important;padding:6px 10px!important;top:-13px!important}
+  .neo-site .neo-visual-glow{width:260px!important;height:260px!important;margin:-130px 0 0 -130px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .neo-site .neo-visual-ring,
+  .neo-site .neo-visual-chip,
+  .neo-site .neo-visual-core,
+  .neo-site .neo-visual-glow{animation:none!important}
+}
 </style>
 <div class="neo-site">
 
@@ -482,11 +580,11 @@ body:has(.neo-site) .wp-block-html,
       <li><a class="" href="index.html">Home</a></li>
       <li class="has-dropdown">
       <button class="nav-trigger " type="button">About<span>⌄</span></button>
-      <div class="dropdown"><a href="about.html">About neOOne</a><a href="vision-mission.html">Vision, Mission & Values</a><a href="our-people.html">Our People</a><a href="partners-clients.html">Partners & Clients</a></div>
+      <div class="dropdown"><a href="about.html">About neOOne</a><a href="vision-mission.html">Vision, Mission & Values</a><a href="our-people.html">Our People</a><a href="partners-clients.html">Partners & Clients</a><a href="privacy-policy.html">Privacy Policy</a></div>
     </li>
       <li class="has-dropdown">
       <button class="nav-trigger active" type="button">Solutions<span>⌄</span></button>
-      <div class="dropdown"><a href="our-solutions.html">Solutions Overview</a><a href="transformation-change.html">Transformation & Change</a><a href="/pillar-two-entrepreneurship-innovation/">Entrepreneurship & Innovation</a><a href="learning-development.html">Learning & Development</a><a href="sustainability-impact.html">Sustainability & Impact</a></div>
+      <div class="dropdown"><a href="our-solutions.html">Solutions Overview</a><a href="transformation-change.html">Transformation & Change</a><a href="entrepreneurship-innovation.html">Entrepreneurship & Innovation</a><a href="learning-development.html">Learning & Development</a><a href="sustainability-impact.html">Sustainability & Impact</a></div>
     </li>
       <li class="has-dropdown">
       <button class="nav-trigger " type="button">Programs<span>⌄</span></button>
@@ -517,7 +615,7 @@ body:has(.neo-site) .wp-block-html,
 
 <section class="section white"><div class="container"><div class="section-head reveal"><span class="eyebrow">Focus areas</span><h2>Where we help create movement</h2></div><div class="card-grid four"><article class="card reveal"><div class="card-icon">01</div><h3>Venture & Start-up Growth</h3><p>Strengthen founder capability, business models, strategy, and execution.</p></article><article class="card reveal"><div class="card-icon">02</div><h3>Technology & Digital Innovation</h3><p>Explore emerging technologies and digital transformation with purpose.</p></article><article class="card reveal"><div class="card-icon">03</div><h3>Inclusive Innovation</h3><p>Create opportunities for women, youth, social ventures, and underserved communities.</p></article><article class="card reveal"><div class="card-icon">04</div><h3>Ecosystem Development</h3><p>Connect policy, partners, capital, capability, and support infrastructure.</p></article></div></div></section>
 <section class="section alt"><div class="container"><div class="section-head reveal"><span class="eyebrow">Solutions</span><h2>Engagements designed for context and application</h2></div><div class="card-grid"><article class="card reveal"><div class="card-icon">01</div><h3>Venture Acceleration</h3><p>Business model innovation labs, founder development, coaching, and venture-building support.</p></article><article class="card reveal"><div class="card-icon">02</div><h3>Innovation Sprints</h3><p>Human-centred design processes that move teams from insight to testable concepts.</p></article><article class="card reveal"><div class="card-icon">03</div><h3>Corporate Intrapreneurship</h3><p>Internal innovation programmes that develop ideas, ownership, and experimentation.</p></article><article class="card reveal"><div class="card-icon">04</div><h3>Investor Readiness</h3><p>Funding strategy, pitch development, storytelling, financial thinking, and confidence.</p></article><article class="card reveal"><div class="card-icon">05</div><h3>Digital & AI Workshops</h3><p>Technology strategy, AI for innovation, green technology, and responsible adoption.</p></article><article class="card reveal"><div class="card-icon">06</div><h3>Ecosystem Facilitation</h3><p>Policy design, stakeholder engagement, partnership development, and ecosystem roadmaps.</p></article></div></div></section>
-<section class="section"><div class="container split"><div class="copy reveal"><span class="eyebrow">Tools and methodologies</span><h2>A flexible toolkit, not a fixed formula</h2><p>Methods are selected and combined according to the organisation, participants, challenge, and intended outcome.</p><div class="pill-row"><span class="pill ">Design Thinking</span><span class="pill orange">LUMA Methods</span><span class="pill ">Disciplined Entrepreneurship</span><span class="pill orange">Lean Startup</span><span class="pill ">Business Model Canvas</span><span class="pill orange">Theory of Change</span><span class="pill ">Impact Measurement</span><span class="pill orange">Pitch Design</span></div></div><div class="media-panel reveal"><div class="orbital"><span class="o1">Insight</span><span class="o2">Practice</span><span class="o3">Reflection</span><span class="o4">Application</span></div></div></div></section>
+<section class="section"><div class="container split"><div class="copy reveal"><span class="eyebrow">Tools and methodologies</span><h2>A flexible toolkit, not a fixed formula</h2><p>Methods are selected and combined according to the organisation, participants, challenge, and intended outcome.</p><div class="pill-row"><span class="pill ">Design Thinking</span><span class="pill orange">LUMA Methods</span><span class="pill ">Disciplined Entrepreneurship</span><span class="pill orange">Lean Startup</span><span class="pill ">Business Model Canvas</span><span class="pill orange">Theory of Change</span><span class="pill ">Impact Measurement</span><span class="pill orange">Pitch Design</span></div></div><div class="media-panel reveal neo-visual-panel"><div class="neo-visual-glow"></div><div class="neo-visual-ring r1"><span class="neo-visual-chip">Insight</span></div><div class="neo-visual-ring r2"><span class="neo-visual-chip">Practice</span></div><div class="neo-visual-ring r3"><span class="neo-visual-chip">Reflection</span></div><div class="neo-visual-core">Application</div></div></div></section>
 <section class="section white"><div class="container"><div class="section-head reveal"><span class="eyebrow">Relevant work</span><h2>Selected projects connected to this pillar</h2></div><div class="project-grid"><article class="project-card reveal" data-category="leadership entrepreneurship">
       <span class="project-tag">Entrepreneurship</span><h3>ILTIZAM Catalyst – Leadership Pillar</h3><p>A leadership journey for Bumiputera SME founders using the Lead Self, Lead Others, Lead Change framework, supported by workshops, peer advisory circles, and individual executive coaching.</p><div class="project-meta">Client: Ekuinas · 2022–2025</div>
     </article><article class="project-card reveal" data-category="entrepreneurship impact">
@@ -548,7 +646,7 @@ body:has(.neo-site) .wp-block-html,
         <a href="our-people.html">Our People</a><a href="partners-clients.html">Partners & Clients</a>
       </div>
       <div class="footer-col"><h4>Solutions</h4>
-        <a href="transformation-change.html">Transformation & Change</a><a href="/pillar-two-entrepreneurship-innovation/">Entrepreneurship & Innovation</a>
+        <a href="transformation-change.html">Transformation & Change</a><a href="entrepreneurship-innovation.html">Entrepreneurship & Innovation</a>
         <a href="learning-development.html">Learning & Development</a><a href="sustainability-impact.html">Sustainability & Impact</a>
       </div>
       <div class="footer-col"><h4>Explore</h4>
@@ -557,7 +655,7 @@ body:has(.neo-site) .wp-block-html,
       </div>
       <div class="footer-col"><h4>Connect</h4>
         <a href="blog.html">Insights</a><a href="contact.html">Contact</a>
-        <a href="mailto:hello@neoone.com.my">hello@neoone.com.my</a><a href="tel:+60134523292">013-452 3292</a>
+        <a href="mailto:admin@neoone.com.my">admin@neoone.com.my</a><a href="tel:+60134523292">013-452 3292</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -613,7 +711,8 @@ body:has(.neo-site) .wp-block-html,
       root.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
       btn.classList.add('active');
       root.querySelectorAll('.project-card[data-category]').forEach(function(card){
-        card.style.display=(filter==='all'||card.getAttribute('data-category').split(' ').indexOf(filter)>-1)?'flex':'none';
+        var match=(filter==='all'||card.getAttribute('data-category').split(' ').indexOf(filter)>-1);
+        card.classList.toggle('filtered-out',!match);
       });
     });
   });

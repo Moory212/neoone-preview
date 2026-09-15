@@ -236,8 +236,13 @@ body:has(.neo-site) .wp-block-html,
 .neo-site .card-icon{
 .neo-site .card-icon{
 .neo-site .card-icon{
-  width:55px!important;min-width:48px!important;height:48px!important;padding:0 16px!important;
+.neo-site .card-icon{
+  width:auto!important;min-width:48px!important;height:48px!important;padding:0 16px!important;
   margin-bottom:20px!important;border-radius:14px!important;
+  display:grid!important;place-items:center!important;background:var(--blue-soft)!important;color:var(--blue-dark)!important;
+  font-family:'Sora',sans-serif!important;font-size:.85rem!important;font-weight:900!important;
+  white-space:nowrap!important
+}  margin-bottom:20px!important;border-radius:14px!important;
   display:grid!important;place-items:center!important;background:var(--blue-soft)!important;color:var(--blue-dark)!important;
   font-family:'Sora',sans-serif!important;font-size:.85rem!important;font-weight:900!important;
   white-space:nowrap!important
@@ -404,7 +409,7 @@ body:has(.neo-site) .wp-block-html,
 .neo-site .cta-band p{max-width:660px!important;color:rgba(255,255,255,.72)!important;margin-top:13px!important}
 .neo-site .neo-footer{padding:60px 0 28px!important;background:var(--ink)!important;color:rgba(255,255,255,.65)!important}
 .neo-site .footer-grid{display:grid!important;grid-template-columns:1.35fr repeat(4,1fr)!important;gap:35px!important}
-.neo-site .footer-brand img{width:145px!important;margin-bottom:17px!important;background:#fff!important;border-radius:10px!important;padding:8px!important}
+.neo-site .footer-brand img{width:145px!important;margin-bottom:17px!important}
 .neo-site .footer-brand p{max-width:310px!important;color:rgba(255,255,255,.52)!important;font-size:.9rem!important}
 .neo-site .footer-col h4{margin-bottom:15px!important;color:#fff!important;font-size:.92rem!important}
 .neo-site .footer-col a{display:block!important;margin:9px 0!important;color:rgba(255,255,255,.55)!important;font-size:.86rem!important}
@@ -470,6 +475,109 @@ body:has(.neo-site) .wp-block-html,
 @media(prefers-reduced-motion:reduce){
   .neo-site .reveal{opacity:1!important;transform:none!important;transition:none!important}
 }
+/* ---------- Philosophy animated visual ---------- */
+.neo-site .neo-philo-visual{
+  position:relative!important;
+  background:radial-gradient(circle at 50% 50%,#ffffff 0%,#F8F9FB 55%,#EAF1FB 100%)!important;
+}
+.neo-site .neo-philo-glow{
+  position:absolute!important;top:50%!important;left:50%!important;
+  width:340px!important;height:340px!important;margin:-170px 0 0 -170px!important;
+  border-radius:50%!important;z-index:0!important;
+  background:radial-gradient(circle,rgba(156,23,125,.16),transparent 65%)!important;
+  animation:neo-philo-glow 6s ease-in-out infinite!important;
+}
+.neo-site .neo-philo-core{
+  position:relative!important;z-index:3!important;
+  width:120px!important;height:120px!important;border-radius:50%!important;
+  background:linear-gradient(135deg,var(--blue-dark),#102D59)!important;
+  color:#fff!important;
+  display:grid!important;place-items:center!important;text-align:center!important;
+  padding:16px!important;
+  font-family:'Sora',sans-serif!important;
+  font-size:.8rem!important;font-weight:800!important;
+  line-height:1.25!important;letter-spacing:.01em!important;
+  animation:neo-philo-pulse 3.6s ease-in-out infinite!important;
+}
+.neo-site .neo-philo-ring{
+  position:absolute!important;top:50%!important;left:50%!important;
+  border-radius:50%!important;z-index:1!important;
+  border:1.5px dashed rgba(156,23,125,.28)!important;
+}
+.neo-site .neo-philo-ring.r1{
+  width:200px!important;height:200px!important;margin:-100px 0 0 -100px!important;
+  animation:neo-spin 24s linear infinite!important;
+}
+.neo-site .neo-philo-ring.r2{
+  width:300px!important;height:300px!important;margin:-150px 0 0 -150px!important;
+  border-color:rgba(255,107,53,.28)!important;
+  animation:neo-spin-rev 36s linear infinite!important;
+}
+.neo-site .neo-philo-ring.r3{
+  width:400px!important;height:400px!important;margin:-200px 0 0 -200px!important;
+  animation:neo-spin 48s linear infinite!important;
+}
+.neo-site .neo-philo-ring::after{
+  content:''!important;position:absolute!important;
+  bottom:-6px!important;left:50%!important;
+  width:11px!important;height:11px!important;margin-left:-5.5px!important;
+  border-radius:50%!important;
+  background:var(--blue-dark)!important;
+  box-shadow:0 0 0 5px rgba(156,23,125,.14)!important;
+}
+.neo-site .neo-philo-ring.r2::after{
+  background:var(--orange)!important;
+  box-shadow:0 0 0 5px rgba(255,107,53,.16)!important;
+}
+.neo-site .neo-philo-chip{
+  position:absolute!important;top:-16px!important;left:0!important;right:0!important;
+  width:max-content!important;margin:0 auto!important;
+  padding:8px 14px!important;border-radius:999px!important;
+  background:#fff!important;color:var(--ink)!important;
+  border:1px solid var(--line)!important;
+  box-shadow:0 10px 22px rgba(23,33,43,.12)!important;
+  font-family:'Sora',sans-serif!important;
+  font-size:.72rem!important;font-weight:800!important;white-space:nowrap!important;
+}
+.neo-site .neo-philo-ring.r1 .neo-philo-chip{animation:neo-spin-rev 24s linear infinite!important}
+.neo-site .neo-philo-ring.r2 .neo-philo-chip{animation:neo-spin 36s linear infinite!important}
+.neo-site .neo-philo-ring.r3 .neo-philo-chip{animation:neo-spin-rev 48s linear infinite!important}
+
+@keyframes neo-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes neo-spin-rev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+@keyframes neo-philo-pulse{
+  0%,100%{box-shadow:0 20px 50px rgba(23,63,122,.35),0 0 0 0 rgba(156,23,125,.35)}
+  50%{box-shadow:0 20px 50px rgba(23,63,122,.35),0 0 0 24px rgba(156,23,125,0)}
+}
+@keyframes neo-philo-glow{
+  0%,100%{opacity:.7;transform:scale(1)}
+  50%{opacity:1;transform:scale(1.1)}
+}
+
+@media(max-width:650px){
+  .neo-site .neo-philo-core{width:92px!important;height:92px!important;font-size:.68rem!important;padding:12px!important}
+  .neo-site .neo-philo-ring.r1{width:150px!important;height:150px!important;margin:-75px 0 0 -75px!important}
+  .neo-site .neo-philo-ring.r2{width:220px!important;height:220px!important;margin:-110px 0 0 -110px!important}
+  .neo-site .neo-philo-ring.r3{width:290px!important;height:290px!important;margin:-145px 0 0 -145px!important}
+  .neo-site .neo-philo-chip{font-size:.62rem!important;padding:6px 10px!important;top:-13px!important}
+  .neo-site .neo-philo-glow{width:260px!important;height:260px!important;margin:-130px 0 0 -130px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .neo-site .neo-philo-ring,
+  .neo-site .neo-philo-chip,
+  .neo-site .neo-philo-core,
+  .neo-site .neo-philo-glow{animation:none!important}
+}
+/* ---------- Ecosystem logos ---------- */
+.neo-site .eco-logo{
+  height:70px!important;
+  margin-bottom:20px!important;
+  display:flex!important;align-items:center!important;justify-content:flex-start!important;
+}
+.neo-site .eco-logo img{
+  max-height:70px!important;max-width:190px!important;width:auto!important;
+  object-fit:contain!important;
+}
 </style>
 <div class="neo-site">
 
@@ -482,11 +590,11 @@ body:has(.neo-site) .wp-block-html,
       <li><a class="" href="index.html">Home</a></li>
       <li class="has-dropdown">
       <button class="nav-trigger active" type="button">About<span>⌄</span></button>
-      <div class="dropdown"><a href="about.html">About neOOne</a><a href="vision-mission.html">Vision, Mission & Values</a><a href="our-people.html">Our People</a><a href="partners-clients.html">Partners & Clients</a></div>
+      <div class="dropdown"><a href="about.html">About neOOne</a><a href="vision-mission.html">Vision, Mission & Values</a><a href="our-people.html">Our People</a><a href="partners-clients.html">Partners & Clients</a><a href="privacy-policy.html">Privacy Policy</a></div>
     </li>
       <li class="has-dropdown">
       <button class="nav-trigger " type="button">Solutions<span>⌄</span></button>
-      <div class="dropdown"><a href="our-solutions.html">Solutions Overview</a><a href="transformation-change.html">Transformation & Change</a><a href="/pillar-two-entrepreneurship-innovation/">Entrepreneurship & Innovation</a><a href="learning-development.html">Learning & Development</a><a href="sustainability-impact.html">Sustainability & Impact</a></div>
+      <div class="dropdown"><a href="our-solutions.html">Solutions Overview</a><a href="transformation-change.html">Transformation & Change</a><a href="entrepreneurship-innovation.html">Entrepreneurship & Innovation</a><a href="learning-development.html">Learning & Development</a><a href="sustainability-impact.html">Sustainability & Impact</a></div>
     </li>
       <li class="has-dropdown">
       <button class="nav-trigger " type="button">Programs<span>⌄</span></button>
@@ -512,6 +620,9 @@ body:has(.neo-site) .wp-block-html,
     <span class="eyebrow">About neOOne</span>
     <h1>A growth consultancy built around people, purpose, and possibility.</h1>
     <p class="lead">Founded in 2010, neOOne helps leaders, organisations, and ecosystems design meaningful growth from the inside out and the ground up.</p>
+    <div class="btn-row" style="margin-top:30px!important;">
+      <a class="btn primary" href="https://neoone.com.my/wp-content/uploads/2026/09/New-NASB-2026-July-company-profile.-.pdf" download>Download the Company Profile</a>
+    </div>
   </div>
 </section>
 
@@ -524,12 +635,12 @@ body:has(.neo-site) .wp-block-html,
 <article class="card reveal"><div class="card-icon">Pillar 2</div><h3>Entrepreneurship & Innovation</h3><p>Venture growth, design thinking, digital innovation, inclusive entrepreneurship, and ecosystem development.</p></article>
 <article class="card reveal"><div class="card-icon">Pillar 3</div><h3>Learning & Development</h3><p>Learning design, facilitation, professional mastery, credentials, future skills, and communities of practice.</p></article>
 </div></div></section>
-<section class="section"><div class="container split"><div class="media-panel reveal"><div class="orbital"><span class="o1">Growth by Design</span><span class="o2">Growth for Good</span><span class="o3">Growth through People</span><span class="o4">The neOOne Way</span></div></div><div class="copy reveal"><span class="eyebrow">Our philosophy</span><h2>Clarity of purpose. Empowered people. Meaningful innovation.</h2><p><strong>Growth by Design</strong> transforms systems, strategy, and culture intentionally.</p><p><strong>Growth for Good</strong> ensures innovation contributes to business, society, and the planet.</p><p><strong>Growth through People</strong> develops individuals and teams who are capable, confident, and future-ready.</p></div></div></section>
+<section class="section"><div class="container split"><div class="media-panel reveal neo-philo-visual"><div class="neo-philo-glow"></div><div class="neo-philo-ring r1"><span class="neo-philo-chip">Growth by Design</span></div><div class="neo-philo-ring r2"><span class="neo-philo-chip">Growth for Good</span></div><div class="neo-philo-ring r3"><span class="neo-philo-chip">Growth through People</span></div><div class="neo-philo-core">The neOOne Way</div></div><div class="copy reveal"><span class="eyebrow">Our philosophy</span><h2>Clarity of purpose. Empowered people. Meaningful innovation.</h2><p><strong>Growth by Design</strong> transforms systems, strategy, and culture intentionally.</p><p><strong>Growth for Good</strong> ensures innovation contributes to business, society, and the planet.</p><p><strong>Growth through People</strong> develops individuals and teams who are capable, confident, and future-ready.</p></div></div></section>
 <section class="section white"><div class="container"><div class="section-head center reveal"><span class="eyebrow">Our ecosystem</span><h2>Connected ventures for learning, innovation, and impact</h2></div><div class="card-grid four">
-<article class="card reveal"><div class="card-icon">N1</div><h3>neOOne Associates</h3><p>Growth consulting and learning transformation.</p></article>
-<article class="card reveal"><div class="card-icon">N2</div><h3>NeoUprise</h3><p>Learning and development for the impact sector.</p></article>
-<article class="card reveal"><div class="card-icon">N3</div><h3>Lakar Technologies</h3><p>AI-powered speech-to-visual learning notes.</p></article>
-<article class="card reveal"><div class="card-icon">N4</div><h3>Pustaka Digital Global</h3><p>A marketplace for learning aids and tools.</p></article>
+<article class="card reveal"><div class="eco-logo"><img src="https://neoone.com.my/wp-content/uploads/2025/04/neoone-2025-logo-e1744470350864.png" alt="neOOne Associates logo"></div><h3>neOOne Associates</h3><p>Growth consulting and learning transformation.</p></article>
+<article class="card reveal"><div class="eco-logo"><img src="https://neouprise.com/wp-content/uploads/2026/07/cropped-neouprise-2024-1.jpg" alt="NeoUprise logo"></div><h3>NeoUprise</h3><p>Learning and development for the impact sector.</p></article>
+<article class="card reveal"><div class="eco-logo"><img src="https://neoone.com.my/wp-content/uploads/2026/09/letslakar-logo-300x300-1.png" alt="Lakar Technologies logo"></div><h3>Lakar Technologies</h3><p>AI-powered speech-to-visual learning notes.</p></article>
+<article class="card reveal"><div class="eco-logo"><img src="https://neoone.com.my/wp-content/uploads/2026/09/IMG_2722.JPG.jpeg" alt="Pustaka Digital Global logo"></div><h3>Pustaka Digital Global</h3><p>A marketplace for learning aids and tools.</p></article>
 </div></div></section>
 
 <section class="cta-band">
@@ -554,7 +665,7 @@ body:has(.neo-site) .wp-block-html,
         <a href="our-people.html">Our People</a><a href="partners-clients.html">Partners & Clients</a>
       </div>
       <div class="footer-col"><h4>Solutions</h4>
-        <a href="transformation-change.html">Transformation & Change</a><a href="/pillar-two-entrepreneurship-innovation/">Entrepreneurship & Innovation</a>
+        <a href="transformation-change.html">Transformation & Change</a><a href="entrepreneurship-innovation.html">Entrepreneurship & Innovation</a>
         <a href="learning-development.html">Learning & Development</a><a href="sustainability-impact.html">Sustainability & Impact</a>
       </div>
       <div class="footer-col"><h4>Explore</h4>
@@ -563,7 +674,7 @@ body:has(.neo-site) .wp-block-html,
       </div>
       <div class="footer-col"><h4>Connect</h4>
         <a href="blog.html">Insights</a><a href="contact.html">Contact</a>
-        <a href="mailto:hello@neoone.com.my">hello@neoone.com.my</a><a href="tel:+60134523292">013-452 3292</a>
+        <a href="mailto:admin@neoone.com.my">admin@neoone.com.my</a><a href="tel:+60134523292">013-452 3292</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -619,7 +730,8 @@ body:has(.neo-site) .wp-block-html,
       root.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
       btn.classList.add('active');
       root.querySelectorAll('.project-card[data-category]').forEach(function(card){
-        card.style.display=(filter==='all'||card.getAttribute('data-category').split(' ').indexOf(filter)>-1)?'flex':'none';
+        var match=(filter==='all'||card.getAttribute('data-category').split(' ').indexOf(filter)>-1);
+        card.classList.toggle('filtered-out',!match);
       });
     });
   });
