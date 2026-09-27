@@ -475,6 +475,27 @@ body:has(.neo-site) .wp-block-html,
 @media(prefers-reduced-motion:reduce){
   .neo-site .reveal{opacity:1!important;transform:none!important;transition:none!important}
 }
+/* ---------- Social media icons ---------- */
+.neo-site .social-row{display:flex!important;gap:10px!important;flex-wrap:wrap!important;margin-top:6px!important}
+.neo-site .social-link{
+  width:44px!important;height:44px!important;border-radius:50%!important;
+  display:grid!important;place-items:center!important;
+  background:var(--blue-soft)!important;color:var(--blue-dark)!important;
+  border:1px solid transparent!important;
+  transition:.2s ease!important;
+}
+.neo-site .social-link:hover{
+  background:var(--blue-dark)!important;color:#fff!important;
+  transform:translateY(-2px)!important;
+  box-shadow:0 10px 22px rgba(23,63,122,.22)!important;
+}
+.neo-site .social-link svg{width:20px!important;height:20px!important;fill:currentColor!important;display:block!important}
+
+/* ---------- Social media icons ---------- */
+.neo-site .social-row{display:flex!important;gap:10px!important;flex-wrap:wrap!important;margin-top:6px!important}
+.neo-site .social-link{width:44px!important;height:44px!important;border-radius:50%!important;display:grid!important;place-items:center!important;background:var(--blue-soft)!important;color:var(--blue-dark)!important;border:1px solid transparent!important;transition:.2s ease!important;}
+.neo-site .social-link:hover{background:var(--blue-dark)!important;color:#fff!important;transform:translateY(-2px)!important;box-shadow:0 10px 22px rgba(23,63,122,.22)!important;}
+.neo-site .social-link svg{width:20px!important;height:20px!important;fill:currentColor!important;display:block!important}
 </style>
 <div class="neo-site">
 
@@ -495,13 +516,17 @@ body:has(.neo-site) .wp-block-html,
     </li>
       <li class="has-dropdown">
       <button class="nav-trigger " type="button">Programs<span>⌄</span></button>
-      <div class="dropdown"><a href="https://neoone.com.my/our-programs-and-certifications/">Programs & Certifications</a><a href="public-programs.html">Public Programs</a></div>
+      <div class="dropdown"><a href="https://neoone.com.my/our-programs-and-certifications/">Programs & Certifications</a><a href="https://neoone.com.my/public-program-2">Public Programs</a><a href="https://neoone.com.my/past-projects">Past Projects</a><a href="https://neoone.com.my/hot-csr-project/">HOT CSR Project</a></div>
     </li>
       <li class="has-dropdown">
-      <button class="nav-trigger " type="button">Projects<span>⌄</span></button>
-      <div class="dropdown"><a href="past-projects.html">Past Projects</a><a href="https://neoone.com.my/hot-csr-project/">HOT CSR Project</a><a href="https://neoone.com.my/a-p-p-l-e-products-2/">A.P.P.L.E Products</a><a href="https://neoone.com.my/ti-yan-cards-page/">Ti Yan</a><a href="https://neoone.com.my/alfa-tiles-page/">Alfa Tiles</a><a href="https://neoone.com.my/alfa-cards-page/">Alfa Cards</a></div>
+      <button class="nav-trigger " type="button">Products<span>⌄</span></button>
+      <div class="dropdown"><a href="https://neoone.com.my/a-p-p-l-e-products-2/">A.P.P.L.E Products</a><a href="https://neoone.com.my/ti-yan-cards-page/">Ti Yan</a><a href="https://neoone.com.my/alfa-tiles-page/">Alfa Tiles</a><a href="https://neoone.com.my/alfa-cards-page/">Alfa Cards</a></div>
     </li>
-      <li><a class="" href="https://neoone.com.my/blog/">Insights</a></li>
+      <li class="has-dropdown">
+      <button class="nav-trigger " type="button">Download<span>⌄</span></button>
+      <div class="dropdown"><a href="https://neoone.com.my/download-accelerated-learning-cycle/">Accelerated Learning Cycle</a><a href="https://neoone.com.my/download-accelerated-learning-pillars/">Accelerated Learning Pillars</a></div>
+    </li>
+      <li><a class="" href="https://neoone.com.my/blog/">Vlog</a></li>
     </ul>
     <a class="btn primary header-cta" href="https://neoone.com.my/contact/">Let’s Talk</a>
     <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
@@ -525,9 +550,13 @@ body:has(.neo-site) .wp-block-html,
     <div class="contact-card"><h3>Training & Workshops</h3><p><a href="mailto:tzeyasmin@neoone.com.my">tzeyasmin@neoone.com.my</a></p></div>
     <div class="contact-card"><h3>General Inquiries</h3><p><a href="mailto:admin@neoone.com.my">admin@neoone.com.my</a><br><a href="tel:+60134523292">013-452 3292</a></p></div>
     <div class="contact-card"><h3>neOOne Accelerated Learning Center</h3><p>14-1, Jalan Wan Kadir 1, Taman Tun Dr Ismail, 60000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</p></div>
-    <div class="contact-card"><h3>Social Media</h3><p>Connect through Facebook, Instagram, Flickr, and LinkedIn using the existing profile links in WordPress.</p></div>
+    <div class="contact-card"><h3>Social Media</h3><p>Follow neOOne for updates, insights, and programme announcements.</p><div class="social-row">
+<a class="social-link" href="https://www.facebook.com/neOOneAssociates" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.9h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94Z"/></svg></a>
+<a class="social-link" href="https://www.instagram.com/neoone_associates/?hl=en" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 1.94c-3.15 0-3.52.01-4.76.07-1.15.05-1.77.24-2.18.4-.55.22-.94.47-1.35.88-.41.41-.66.8-.88 1.35-.16.41-.35 1.03-.4 2.18-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05 1.15.24 1.77.4 2.18.22.55.47.94.88 1.35.41.41.8.66 1.35.88.41.16 1.03.35 2.18.4 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c1.15-.05 1.77-.24 2.18-.4.55-.22.94-.47 1.35-.88.41-.41.66-.8.88-1.35.16-.41.35-1.03.4-2.18.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-1.15-.24-1.77-.4-2.18-.22-.55-.47-.94-.88-1.35-.41-.41-.8-.66-1.35-.88-.41-.16-1.03-.35-2.18-.4-1.24-.06-1.61-.07-4.76-.07Zm0 3.3a4.6 4.6 0 1 1 0 9.2 4.6 4.6 0 0 1 0-9.2Zm0 1.94a2.66 2.66 0 1 0 0 5.32 2.66 2.66 0 0 0 0-5.32Zm4.78-2.14a1.08 1.08 0 1 1 0 2.16 1.08 1.08 0 0 1 0-2.16Z"/></svg></a>
+<a class="social-link" href="https://www.linkedin.com/company/neooneassociates/posts/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg></a>
+</div></div>
   </div>
-  <div class="form-shell reveal"><span class="eyebrow">Tell us what you need</span><h2 style="font-size:2rem!important;">We’re ready to assist</h2><p>Keep the current lead form connected to Fluent Forms and Fluent SMTP.</p><div class="form-slot"><div><strong>Lead Form integration slot</strong><p>Insert the current “Lead Form Neoone” using a Fluent Forms block or Shortcode block.</p></div></div></div>
+  <div class="form-shell reveal"><span class="eyebrow">Tell us what you need</span><h2 style="font-size:2rem!important;">We’re ready to assist</h2><p>Complete the form below and we'll be in touch shortly.</p>[fluentform id="3"]</div>
 </div></section>
 <section class="section alt"><div class="container"><div class="section-head center reveal"><span class="eyebrow">What happens next</span><h2>A simple start to a useful conversation</h2></div><div class="card-grid four">
 <article class="card reveal"><div class="card-icon">01</div><h3>You share the context</h3><p>Tell us about the audience, challenge, timing, and outcome.</p></article>
@@ -554,11 +583,11 @@ body:has(.neo-site) .wp-block-html,
         <a href="https://neoone.com.my/learning-development/">Learning & Development</a><a href="https://neoone.com.my/our-sustainability-impact/">Sustainability & Impact</a>
       </div>
       <div class="footer-col"><h4>Explore</h4>
-        <a href="https://neoone.com.my/our-programs-and-certifications/">Programs</a><a href="past-projects.html">Past Projects</a>
+        <a href="https://neoone.com.my/our-programs-and-certifications/">Programs</a><a href="https://neoone.com.my/past-projects">Past Projects</a>
         <a href="https://neoone.com.my/hot-csr-project/">HOT CSR Project</a><a href="https://neoone.com.my/a-p-p-l-e-products-2/">A.P.P.L.E Products</a>
       </div>
       <div class="footer-col"><h4>Connect</h4>
-        <a href="https://neoone.com.my/blog/">Insights</a><a href="https://neoone.com.my/contact/">Contact</a>
+        <a href="https://neoone.com.my/blog/">Vlog</a><a href="https://neoone.com.my/contact/">Contact</a>
         <a href="mailto:admin@neoone.com.my">admin@neoone.com.my</a><a href="tel:+60134523292">013-452 3292</a>
       </div>
     </div>
